@@ -1,7 +1,10 @@
+import Header from "./components/Header"
+
 function App() {
   return (
-    <div>
-      <h1 className="text-indigo-500 font-bold text-3xl">Hello from React</h1>
+    <div className="bg-slate-50 dark:bg-slate-900 dark:text-slate-50">
+      <Header />
+      daf
     </div>
   )
 }
