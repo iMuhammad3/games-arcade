@@ -1,10 +1,11 @@
 import Header from "./components/Header"
+import Main from './components/Main'
 
 function App() {
   return (
-    <div className="bg-slate-50 dark:bg-slate-900 dark:text-slate-50">
+    <div className="flex flex-col min-h-screen bg-slate-50 dark:bg-slate-900 dark:text-slate-50">
       <Header />
-      daf
+      <Main />
     </div>
   )
 }
