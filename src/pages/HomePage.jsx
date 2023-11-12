@@ -13,22 +13,18 @@
 
 // HomePage.jsx
 import React from 'react';
+import Main from '../components/Main'
 import { Link } from 'react-router-dom';
+import Header from '../components/Header';
 
 const HomePage = () => {
   const games = ['typing-game']; // Add more games as needed
 
   return (
-    <div>
-      <h2>Game List</h2>
-      <ul>
-        {games.map((game) => (
-          <li key={game}>
-            <Link to={`/game/${game}`}>{game}</Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <Header />
+      <Main />
+    </>
   );
 };
 
