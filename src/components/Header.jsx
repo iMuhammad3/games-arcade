@@ -18,7 +18,7 @@ const moon_solid = (
     </svg>
 )
 
-function Header() {
+function Header({setSelectedGame}) {
     const [isDarkMode, setIsDarkMode] = useState(true);
 
     if(isDarkMode){
@@ -30,6 +30,7 @@ function Header() {
     return (
         <header className="sticky top-0 flex items-center justify-between bg-slate-100 dark:bg-slate-850 py-3 px-10 md:px-16 w-full shadow-lg">
             <img
+                onClick={() => setSelectedGame(null)}
                 className="w-12 rounded-md aspect-square cursor-pointer"
                 src="./src/assets/just-games.jpeg"
                 alt=""

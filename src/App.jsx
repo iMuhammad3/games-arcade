@@ -1,16 +1,14 @@
 
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import GamePage from './pages/GamePage';
+import React, { useState } from 'react';
 import Header from './components/Header'
 import Main from './components/Main';
 
 const App = () => {
+  const [selectedGame, setSelectedGame] = useState(null);
   return (
     <>
-      <Header />
-      <Main />
+      <Header setSelectedGame={setSelectedGame} />
+      <Main setSelectedGame={setSelectedGame} selectedGame={selectedGame} />
     </>
   );
 };
