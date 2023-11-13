@@ -18,24 +18,36 @@ const moon_solid = (
     </svg>
 )
 
-function Header({setSelectedGame}) {
+function Header({setSelectedGame, selectedGame}) {
     const [isDarkMode, setIsDarkMode] = useState(true);
 
+    // add dark class to the body is 'isDarkMode' is true
     if(isDarkMode){
         document.body.classList.add('dark')
     } else if(!isDarkMode){
         document.body.classList.remove('dark')
     }
 
+    // change the select game from "selected-game" to "Selected Game" format
+    const formattedName = selectedGame?.split("-")
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1, word.length))
+    .join(" ")
+
+    const currentGame = () => {
+        return <div className="text-4xl">{formattedName}</div>
+    }
+
     return (
-        <header className="sticky top-0 flex items-center justify-between bg-slate-100 dark:bg-slate-850 py-3 px-10 md:px-16 w-full shadow-lg">
+        <header className="sticky top-0 flex items-center justify-between bg-slate-100 dark:bg-slate-850 text-midnightblue dark:text-slate-50 py-3 px-10 md:px-16 w-full shadow-lg">
             <img
+                // simulates "going back to home page"
                 onClick={() => setSelectedGame(null)}
                 className="w-12 rounded-md aspect-square cursor-pointer"
                 src="./src/assets/just-games.jpeg"
                 alt=""
             />
-            <SearchInput forHeader={true} />
+            {/* if there's a selected game, display the name. Else display the search input */}
+            {(selectedGame && currentGame()) || <SearchInput forHeader={true} />}
             <div className="flex items-center gap-3 cursor-pointer">
                 <button onClick={() => setIsDarkMode(prev => !prev)}>
                     {isDarkMode ? moon_solid : moon_regular}

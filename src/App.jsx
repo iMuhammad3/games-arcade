@@ -7,7 +7,7 @@ const App = () => {
   const [selectedGame, setSelectedGame] = useState(null);
   return (
     <>
-      <Header setSelectedGame={setSelectedGame} />
+      <Header setSelectedGame={setSelectedGame} selectedGame={selectedGame} />
       <Main setSelectedGame={setSelectedGame} selectedGame={selectedGame} />
     </>
   );
