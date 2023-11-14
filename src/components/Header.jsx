@@ -34,7 +34,7 @@ function Header({setSelectedGame, selectedGame}) {
     .join(" ")
 
     const currentGame = () => {
-        return <div className="text-4xl">{formattedName}</div>
+        return <div className="text-4xl hidden md:block">{formattedName}</div>
     }
 
     return (
