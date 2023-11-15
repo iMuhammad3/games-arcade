@@ -7,7 +7,7 @@ module.exports = {
       colors: {
         "slate-850": "rgb(27,37,55)",
         "slate-950": "rgb(7,16,40)",
-        "midnightblue": "#191960",
+        "midnightblue": "#393970",
       },
       fontFamily: {
         "sans": ["Poppins", "sans-serif"]
