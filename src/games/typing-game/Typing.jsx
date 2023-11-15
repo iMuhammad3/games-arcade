@@ -4,13 +4,18 @@ import Timer from "./Timer";
 export default function Game() {
     const [text, setText] = useState([]);
     const [userInput, setUserInput] = useState([])
+    const [loaded, setLoaded] = useState(false)
 
     useEffect(() => {
         const fetchQuote = async () => {
-            const resp = await fetch("http://api.quotable.io/random");
-            const data = await resp.json();
-            console.log(data);
-            setText(data.content.split(""));
+            try{
+                const resp = await fetch("http://api.quotable.io/random");
+                const data = await resp.json();
+                setText(data.content.split(""));
+                setLoaded(true)
+            } catch(err) {
+                console.error(err);
+            }
         };
         fetchQuote();
     }, []);
@@ -47,6 +52,7 @@ export default function Game() {
 
 function Char({char, correct}){
     let color = "text-red-500 underline"
+    // if correct is undefined then leave the text as white
     if(correct === undefined) color = "text-slate-100"
     if(correct) color = "text-green-500"
     return <span className={color}>{char}</span>
