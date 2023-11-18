@@ -1,31 +1,13 @@
 
 import React, { useState } from 'react';
-import Header from './components/Header'
-import Main from './components/Main';
+import Home from './pages/Home';
+import Error from './pages/Error';
+import Auth from './pages/Auth/Auth';
+
 
 const App = () => {
-  const [selectedGame, setSelectedGame] = useState(null);
-  return (
-    <>
-      <Header setSelectedGame={setSelectedGame} selectedGame={selectedGame} />
-      <Main setSelectedGame={setSelectedGame} selectedGame={selectedGame} />
-    </>
-  );
+  return 
 };
 
 
 export default App;
-{/* <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-          </ul>
-        </nav>
-
-        <hr />
-
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/games/:gameName" element={<GamePage />} />
-        </Routes> */}

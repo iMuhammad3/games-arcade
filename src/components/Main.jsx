@@ -1,6 +1,6 @@
 // Main.jsx
 import Game from "./Game";
-import SearchInput from "./Input";
+import SearchInput from "./Inputs/SearchInput";
 import GAMES from "../games/Games";
 
 function Main({selectedGame, setSelectedGame}) {
