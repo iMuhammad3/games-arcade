@@ -9,7 +9,7 @@ export default function Page() {
     useEffect(() => {
         const fetchQuote = async () => {
             try {
-                const resp = await fetch("http://api.quotable.io/random");
+                const resp = await fetch("https://api.quotable.io/random");
                 const data = await resp.json();
                 setText(data.content.split(""));
                 console.log(data.content);
@@ -24,7 +24,7 @@ export default function Page() {
     const handleCorrect = async () => {
         setLoaded(false)
         try {
-            const resp = await fetch("http://api.quotable.io/random");
+            const resp = await fetch("https://api.quotable.io/random");
             const data = await resp.json();
             setText(data.content.split(""));
             setLoaded(true)
