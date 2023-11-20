@@ -10,7 +10,7 @@ const Home = () => {
             <Header />
             <Main />
             {/* background image */}
-            <img id="background" src="/src/assets/layered-peaks-haikei.png" alt="" />
+            <img id="background" src="https://firebasestorage.googleapis.com/v0/b/mask-games.appspot.com/o/layered-peaks-haikei.png?alt=media&token=339c651b-a1e0-4ddb-b406-148bb23309e1" alt="" />
         </div>
     );
 };

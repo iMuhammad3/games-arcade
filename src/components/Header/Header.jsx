@@ -9,7 +9,7 @@ function Header() {
             <Link to="/">
                 <img
                     className="aspect-square w-12 md:w-14 rounded-md"
-                    src="https://yt3.ggpht.com/ytc/APkrFKZgtzyBMI3yh3GEJq5poZrDh05bsCJYcMpoKgJNzA=s88-c-k-c0x00ffffff-no-rj"
+                    src="https://firebasestorage.googleapis.com/v0/b/mask-games.appspot.com/o/just-games.jpeg?alt=media&token=a499030b-163d-48a7-b773-805819af0f98"
                     alt=""
                 />
             </Link>
