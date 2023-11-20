@@ -9,7 +9,7 @@ function Header() {
             <Link to="/">
                 <img
                     className="aspect-square w-12 md:w-14 rounded-md"
-                    src="./src/assets/just-games.jpeg"
+                    src="https://yt3.ggpht.com/ytc/APkrFKZgtzyBMI3yh3GEJq5poZrDh05bsCJYcMpoKgJNzA=s88-c-k-c0x00ffffff-no-rj"
                     alt=""
                 />
             </Link>
