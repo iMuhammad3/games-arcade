@@ -1,12 +1,21 @@
 
 import React, { useState } from 'react';
-import Home from './pages/Home';
-import Error from './pages/Error';
-import Auth from './pages/Auth/Auth';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Home from "./pages/Home";
+import Error from "./pages/Error";
+import "./index.css"
 
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+    errorElement: <Error />,
+  }
+])
 
 const App = () => {
-  return 
+  return <RouterProvider router={router} />
 };
 
 
