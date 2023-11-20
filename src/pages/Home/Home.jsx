@@ -10,7 +10,7 @@ const Home = () => {
             <Header />
             <Main />
             {/* background image */}
-            <img id="background" src="src/assets/layered-peaks-haikei.png" alt="" />
+            <img id="background" src="./src/assets/layered-peaks-haikei.png" alt="" />
         </div>
     );
 };
