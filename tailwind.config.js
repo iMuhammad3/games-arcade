@@ -5,7 +5,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "slate-850": "rgb(27,37,55)",
+        "slate-750": "rgb(45,52,80)",
+        "slate-850": "rgb(27,37,65)",
         "slate-950": "rgb(7,16,40)",
       },
       fontFamily: {

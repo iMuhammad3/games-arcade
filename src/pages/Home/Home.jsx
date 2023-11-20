@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../../components/Header/Header";
-import Main from "../../components/Main";
+import Main from "./Main";
 
 import './home.css'
 
@@ -10,7 +10,7 @@ const Home = () => {
             <Header />
             <Main />
             {/* background image */}
-            <img id="background" src="./src/assets/layered-peaks-haikei.png" alt="" />
+            <img id="background" src="/src/assets/layered-peaks-haikei.png" alt="" />
         </div>
     );
 };
