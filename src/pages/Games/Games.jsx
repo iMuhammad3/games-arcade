@@ -9,7 +9,7 @@ const GamePage = () => {
             <Header />
             <main className="flex flex-col gap-2">
                 <h1 className="text-center mt-5">Games</h1>
-                <div className="flex flex-col md:flex-row gap-4 md:items-center justify-between px-8 md:px-16">
+                <div className="flex flex-col md:flex-row gap-4 md:items-center justify-between px-4 md:px-16">
                     <SearchInput />
                     <Categories />
                 </div>

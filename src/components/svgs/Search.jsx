@@ -1,7 +1,7 @@
 export const SearchSVG = ({ className }) => {
     return (
         <svg
-            fill="#b7b7bb"
+            fill="#dedfea"
             className={className}
             xmlns="http://www.w3.org/2000/svg"
             height="1em"
