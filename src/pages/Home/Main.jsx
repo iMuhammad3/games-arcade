@@ -1,22 +1,25 @@
 // Main.jsx
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/Buttons/Button";
+import animation from '../../assets/animation.gif'
 
 function Main() {
     const navigate = useNavigate();
     return (
-        <main className="flex flex-col items-center justify-center flex-grow z-10 relative">
-            <h1 className="absolute top-8 text-3xl">
-                We've got games for you hehe!
+        <main className="flex flex-col items-center flex-grow z-10 relative">
+            <h1 className="mt-6">
+                We've got games for you!
             </h1>
-            <img className="-mt-20" src="./animation.gif" alt="" />
-            <Button
-                className="px-8 text-xl bg-gradient-to-tr from-sky-600 to-blue-600"
-                // navigates to games page
-                onClick={() => navigate("/games")}
-            >
-                Play Games!
-            </Button>
+            <div className="-mt-40 flex-grow flex flex-col justify-center">
+                <img className="-mt-20" src={animation} alt="" />
+                <Button
+                    className="px-8 text-xl bg-gradient-to-tr from-sky-600 to-blue-600"
+                    // navigates to games page
+                    onClick={() => navigate("/games")}
+                >
+                    Play Games!
+                </Button>
+            </div>
         </main>
     );
 }

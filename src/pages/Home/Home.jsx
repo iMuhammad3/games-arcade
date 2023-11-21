@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../../components/Header/Header";
+import layeredPeaks from '../../assets/layered-peaks-haikei.png'
 import Main from "./Main";
 
 import "./home.css";
@@ -13,7 +14,7 @@ const Home = () => {
             <img
                 // target id in css file
                 id="background"
-                src="https://firebasestorage.googleapis.com/v0/b/mask-games.appspot.com/o/layered-peaks-haikei.png?alt=media&token=339c651b-a1e0-4ddb-b406-148bb23309e1"
+                src={layeredPeaks}
                 alt=""
             />
         </div>
