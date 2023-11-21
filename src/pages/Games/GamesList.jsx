@@ -2,6 +2,8 @@ import React from "react";
 import Header from "../../components/Header/Header";
 import { SearchInput } from "./SearchInput";
 import { Categories } from "./Categories";
+import GAMES from "../../games/ALL-GAMES";
+import { Link, Outlet } from "react-router-dom";
 
 const GamePage = () => {
     return (
@@ -13,6 +15,15 @@ const GamePage = () => {
                     <SearchInput />
                     <Categories />
                 </div>
+                <ul>
+                    {GAMES.map(game => {
+                        return (
+                            <li>
+                                <Link to={`/game/${game.name}`}>{game.name}</Link>
+                            </li>
+                        )
+                    })}
+                </ul>
             </main>
         </div>
     );

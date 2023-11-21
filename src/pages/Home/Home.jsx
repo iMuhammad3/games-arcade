@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../../components/Header/Header";
-import layeredPeaks from '../../assets/layered-peaks-haikei.png'
+import layeredWaves from '../../assets/layered-waves.png'
 import Main from "./Main";
 
 import "./home.css";
@@ -14,7 +14,7 @@ const Home = () => {
             <img
                 // target id in css file
                 id="background"
-                src={layeredPeaks}
+                src={layeredWaves}
                 alt=""
             />
         </div>
