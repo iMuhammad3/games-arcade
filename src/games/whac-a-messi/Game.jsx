@@ -56,7 +56,7 @@ const Game = () => {
     };
 
     return (
-        <div className="flex-grow flex flex-col items-center justify-center gap-4">
+        <div className="center-game gap-4">
             <section className="flex flex-col md:flex-row justify-between gap-2 md:w-[450px] border rounded p-2">
                 <h2>Time Left: {time}</h2>
                 <h2>Score: {score}</h2>

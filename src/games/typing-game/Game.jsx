@@ -81,7 +81,7 @@ const Game = () => {
   );
 
   return (
-    <div className="flex flex-col items-center justify-center gap-10 flex-grow">
+    <div className="gap-10 center-game">
       {isLoaded ? GameUI : <ThreeDots color="lightblue" />}
     </div>
   );
