@@ -67,7 +67,7 @@ const Game = () => {
   const GameUI = (
     <>
       <Timer />
-      <div className="bg-slate-200 dark:bg-slate-750 md:w-[550px] w-80 p-4 flex flex-col gap-2 rounded-md shadow-lg">
+      <div className="bg-slate-200 dark:bg-slate-750 md:w-[550px] w-full mx-2 md:mx-0 p-4 flex flex-col gap-4 rounded-md shadow-lg">
         <p>{characters()}</p>
         <textarea
           ref={textareaRef}
@@ -81,7 +81,7 @@ const Game = () => {
   );
 
   return (
-    <div className="flex flex-col items-center justify-center gap-10 flex-grow ">
+    <div className="flex flex-col items-center justify-center gap-10 flex-grow">
       {isLoaded ? GameUI : <ThreeDots color="lightblue" />}
     </div>
   );
