@@ -7,16 +7,16 @@ export const GameElement = ({ game, formattedName }) => {
     };
 
     return (
-        <li key={game.id} className="bg-gray-900 px-2 pt-2 rounded-md group">
+        <li key={game.id} className="bg-gray-900 max-w-[340px] w-full px-2 pt-2 rounded-md group">
             <Link to={`/game/${game.name}`}>
                 <img
-                    className="group-hover:hidden hidden md:block w-64 md:w-80"
+                    className="group-hover:hidden hidden md:block w-full"
                     src={game.img_url}
                     alt={game.name}
                 />
                 <video
                     onMouseOver={playVideo}
-                    className="md:hidden group-hover:block w-64 md:w-80"
+                    className="md:hidden group-hover:block w-full"
                     playsInline
                     loop
                     muted
