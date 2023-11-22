@@ -6,7 +6,6 @@ export const GameElement = ({ game }) => {
     }
 
     const playVideo = (e) => {
-        console.log(e);
         e.target.currentTime = 0
         e.target.play()
     }
