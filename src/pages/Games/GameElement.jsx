@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
 
-export const GameElement = ({ game }) => {
-    const formattedName = (name) => {
-        return name.split("-").join(" ").toUpperCase()
-    }
+export const GameElement = ({ game, formattedName }) => {
+    
 
     const playVideo = (e) => {
         e.target.currentTime = 0

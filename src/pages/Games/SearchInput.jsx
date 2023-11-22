@@ -1,9 +1,11 @@
 import { SearchSVG } from "../../components/svgs/Search";
 
-export const SearchInput = () => {
+export const SearchInput = ({ userInput, setUserInput }) => {
     return (
         <div className="relative">
             <input
+                value={userInput}
+                onChange={e => setUserInput(e.target.value)}
                 className="bg-slate-750 placeholder:text-slate-300 w-full md:w-80 px-5 py-2 rounded-lg shadow outline-none"
                 type="text"
                 placeholder="Search Games..."
