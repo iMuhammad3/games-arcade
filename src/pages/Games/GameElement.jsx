@@ -1,26 +1,26 @@
 import { Link } from "react-router-dom";
 
 export const GameElement = ({ game, formattedName }) => {
-    const playVideo = e => {
-        e.target.currentTime = 0;
-        e.target.play();
-    };
 
     return (
-        <li key={game.id} className="bg-gray-900 max-w-[340px] w-full px-2 pt-2 rounded-md group">
+        <li
+            key={game.id}
+            className="bg-gray-900 max-w-[340px] w-full px-2 pt-2 rounded-md"
+        >
             <Link to={`/game/${game.name}`}>
-                <img
-                    className="group-hover:hidden hidden md:block w-full"
-                    src={game.img_url}
-                    alt={game.name}
-                />
                 <video
-                    onMouseOver={playVideo}
-                    className="md:hidden group-hover:block w-full"
+                    onMouseEnter={e => {
+                        e.target.currentTime = 0;
+                        e.target.play();
+                    }}
+                    onMouseLeave={e => {
+                        e.target.pause();
+                        e.target.currentTime = 0;
+                    }}
+                    className=" w-full"
                     playsInline
                     loop
                     muted
-                    autoPlay
                 >
                     <source src={game.video_url} type="video/mp4" />
                 </video>
