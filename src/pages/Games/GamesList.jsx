@@ -30,7 +30,7 @@ const GamePage = () => {
                     />
                     <Categories />
                 </div>
-                <ul className="flex border px-4 md:px-16">{filteredGames}</ul>
+                <ul className="mt-4 flex flex-wrap justify-between px-4 md:px-16">{filteredGames}</ul>
             </main>
         </div>
     );

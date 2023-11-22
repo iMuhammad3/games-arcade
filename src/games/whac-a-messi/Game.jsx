@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Square } from "./components/Square";
 import "./game.css";
-import Button from '../../components/Buttons/Button'
 
 const Game = () => {
     const [score, setScore] = useState(0);
@@ -37,7 +36,7 @@ const Game = () => {
                 newSquares[randomIndex] = { messi: true };
                 return newSquares;
             });
-        }, 700);
+        }, 600);
 
         if (time == 0) {
             clearInterval(countDownId);
@@ -56,14 +55,6 @@ const Game = () => {
         }
     };
 
-    const restartGame = () => {
-        setScore(0);
-        setTime(30);
-        setGameActive(true);
-        const initialSquares = Array(9).fill({ messi: false });
-        setSquares(initialSquares);
-      };
-
     return (
         <div className="flex-grow flex flex-col items-center justify-center gap-4">
             <section className="flex flex-col md:flex-row justify-between gap-2 md:w-[450px] border rounded p-2">
@@ -81,7 +72,6 @@ const Game = () => {
                     );
                 })}
             </ul>
-            <button onClick={restartGame}>restart</button>
         </div>
     );
 };
