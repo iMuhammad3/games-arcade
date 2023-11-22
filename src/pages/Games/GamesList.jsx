@@ -3,9 +3,12 @@ import Header from "../../components/Header/Header";
 import { SearchInput } from "./SearchInput";
 import { Categories } from "./Categories";
 import GAMES from "../../games/ALL-GAMES";
-import { Link, Outlet } from "react-router-dom";
+import { GameElement } from "./GameElement";
 
 const GamePage = () => {
+
+    
+
     return (
         <div className="flex flex-col">
             <Header />
@@ -15,12 +18,10 @@ const GamePage = () => {
                     <SearchInput />
                     <Categories />
                 </div>
-                <ul>
+                <ul className="flex border px-4 md:px-16">
                     {GAMES.map(game => {
                         return (
-                            <li>
-                                <Link to={`/game/${game.name}`}>{game.name}</Link>
-                            </li>
+                            <GameElement game={game} />
                         )
                     })}
                 </ul>

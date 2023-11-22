@@ -1,9 +1,13 @@
-import TypingGame from './typing-game/Typing'
+import TypingGame from './typing-game/Game'
+
 
 const GAMES = [
     {
+        id: 1,
         name: "typing-game",
-        element: <TypingGame />
+        element: <TypingGame />,
+        img_url: "/src/assets/game-previews/typing.png",
+        video_url: "/src/assets/game-videos/typing.mp4"
     }
 ]
 

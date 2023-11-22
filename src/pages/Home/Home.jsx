@@ -7,7 +7,7 @@ import "./home.css";
 
 const Home = () => {
     return (
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-[100dvh]">
             <Header />
             <Main />
             {/* background image */}
