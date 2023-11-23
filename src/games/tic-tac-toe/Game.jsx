@@ -77,7 +77,7 @@ const Game = () => {
                     <Square turn={square} onClick={() => handleClick(index)} />
                 ))}
             </div>
-            <Button className="" onClick={restartGame}>Restart</Button>
+            <Button onClick={restartGame}>Restart</Button>
         </div>
     );
 };
