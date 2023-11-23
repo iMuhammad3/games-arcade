@@ -7,6 +7,8 @@ import WhacVid from '../assets/game-videos/whac-a-messi.mp4'
 import TicTacToe from './tic-tac-toe/Game'
 import TicVid from '../assets/game-videos/tic-tac-toe.mp4'
 
+import RockGame from './rock-paper-scissors/Game'
+
 const GAMES = [
     {
         id: 1,
@@ -25,6 +27,12 @@ const GAMES = [
         name: "tic-tac-toe",
         element: <TicTacToe />,
         video_url: TicVid,
+    },
+    {
+        id: 4,
+        name: "rock-paper-scissors",
+        element: <RockGame />,
+        video_url: null,
     },
 ]
 
