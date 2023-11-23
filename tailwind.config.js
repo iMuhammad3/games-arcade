@@ -10,7 +10,8 @@ module.exports = {
         "slate-950": "rgb(7,16,40)",
       },
       fontFamily: {
-        "sans": ["Poppins", "sans-serif"]
+        "sans": ["Poppins", "sans-serif"],
+        "serif": ["Nunito", "serif"]
       }
     }
   },
