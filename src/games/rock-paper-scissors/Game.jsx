@@ -1,6 +1,8 @@
 const Game = () => {
   return (
-    <div>Rock paper scissors</div>
+    <div>
+        rock paper scissors
+    </div>
   )
 }
 
