@@ -1,29 +1,36 @@
-.x::after, .x::before{
+.X::after, .X::before, .O::after{
     content: "";
     position: absolute;
     top: 50%;
     left: 50%;
-    background-color: red;
+}
+.X::after, .X::before{
+    background-color: white;
     width: 10px;
-    height: 100px;
+    height: 75%;
     border-radius: 1000px;
 }
-.x::before{
+.X::before{
     transform: translate(-50%, -50%) rotate(45deg);
 }
-.x::after{
+.X::after{
     transform: translate(-50%, -50%) rotate(-45deg);
-    background-color: blue;
 }
 
-.o::after{
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
+.O::after{
     transform: translate(-50%, -50%);
     width: 75%;
     aspect-ratio: 1/1;
-    border: 10px solid blue;
+    border: 10px solid white;
     border-radius: 1000px;
+}
+
+/* trick to remove the surrounding borders of the board */
+#board::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 2px solid;
+    pointer-events: none;
+    @apply border-slate-850
 }

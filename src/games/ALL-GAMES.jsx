@@ -5,6 +5,7 @@ import WhacGame from './whac-a-messi/Game'
 import WhacVid from '../assets/game-videos/whac-a-messi.mp4'
 
 import TicTacToe from './tic-tac-toe/Game'
+import TicVid from '../assets/game-videos/tic-tac-toe.mp4'
 
 const GAMES = [
     {
@@ -23,7 +24,7 @@ const GAMES = [
         id: 3,
         name: "tic-tac-toe",
         element: <TicTacToe />,
-        video_url: null,
+        video_url: TicVid,
     },
 ]
 
