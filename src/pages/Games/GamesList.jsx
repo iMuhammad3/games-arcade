@@ -3,7 +3,7 @@ import Header from "../../components/Header/Header";
 import { SearchInput } from "./SearchInput";
 import { Categories } from "./Categories";
 import GAMES from "../../games/ALL-GAMES";
-import { GameElement } from "./GameElement";
+import { GameElement } from "./GameElement/GameElement";
 
 const GamePage = () => {
     const [userInput, setUserInput] = useState("");
