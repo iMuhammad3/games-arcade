@@ -30,7 +30,7 @@ const GamePage = () => {
                     />
                     <Categories />
                 </div>
-                <ul className="mt-4 flex flex-wrap justify-center md:justify-between gap-4 px-4 md:px-16">{filteredGames}</ul>
+                <ul className="mt-4 font-serif flex flex-wrap justify-center md:justify-between gap-4 px-4 md:px-16">{filteredGames}</ul>
             </main>
         </div>
     );

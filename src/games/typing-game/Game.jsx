@@ -68,20 +68,20 @@ const Game = () => {
     <>
       <Timer />
       <div className="bg-slate-200 dark:bg-slate-750 md:w-[550px] w-full mx-2 md:mx-0 p-4 flex flex-col gap-4 rounded-md shadow-lg">
-        <p>{characters()}</p>
+        <p className="text-lg">{characters()}</p>
         <textarea
           ref={textareaRef}
           value={userInput.join("")}
           onChange={handleInput}
           rows="7"
-          className="bg-slate-100 dark:bg-slate-850 px-4 py-2 w-full rounded outline-none resize-none"
+          className="bg-slate-850 font-sans px-4 py-2 w-full rounded outline-none resize-none"
         ></textarea>
       </div>
     </>
   );
 
   return (
-    <div className="gap-10 center-game">
+    <div className="gap-10 center-game font-serif">
       {isLoaded ? GameUI : <ThreeDots color="lightblue" />}
     </div>
   );
