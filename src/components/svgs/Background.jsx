@@ -2,7 +2,7 @@ import React from "react";
 
 export const Background = () => {
     return (
-        <div className="absolute inset-0 overflow-hidden ">
+        <div className="absolute bottom-0 right-0 overflow-hidden">
             <svg
                 id="visual"
                 viewBox="0 0 1280 800"
