@@ -7,7 +7,7 @@ function Main() {
     const navigate = useNavigate();
     return (
         <main className="flex flex-col items-center flex-grow z-10 relative">
-            <h1 className="mt-6">
+            <h1 className="mt-10">
                 We've got games for you!
             </h1>
             <div className="-mt-40 flex-grow flex flex-col justify-center">
