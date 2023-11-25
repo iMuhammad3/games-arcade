@@ -1,3 +1,4 @@
+import React from 'react'
 import { SearchSVG } from "../../components/svgs/Search";
 
 export const SearchInput = ({ userInput, setUserInput }) => {

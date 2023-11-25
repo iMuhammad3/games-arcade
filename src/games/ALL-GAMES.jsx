@@ -1,3 +1,5 @@
+import React from 'react'
+
 import TypingGame from './typing-game/Game'
 import TypingVid from '../assets/game-videos/typing.mp4'
 

@@ -1,3 +1,4 @@
+import React from 'react'
 import { Link } from "react-router-dom";
 import { HomeSVG } from "../svgs/Home";
 import { GamePadSVG } from "../svgs/GamePad";
