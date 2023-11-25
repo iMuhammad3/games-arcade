@@ -3,7 +3,6 @@ import Header from "../../components/Header/Header";
 import layeredWaves from "../../assets/layered-waves.png";
 import Main from "./Main";
 
-import "./home.css";
 import { Background } from "../../components/svgs/Background";
 
 const Home = () => {
