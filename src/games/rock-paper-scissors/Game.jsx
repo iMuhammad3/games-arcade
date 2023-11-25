@@ -1,11 +1,10 @@
-import { Paper } from "../../components/svgs/Paper";
-import { Rock } from "../../components/svgs/Rock";
-import { Scissors } from "../../components/svgs/Scissors";
 import { SvgContainer } from "./components/SvgContainer";
+import { useSVG } from "./hooks/useSVG";
 
 const Game = () => {
-    const SVGs = [<Rock />, <Paper />, <Scissors />]
-    const randomSVG = SVGs[Math.floor(Math.random() * 3)]
+    const moves = ["rock", "paper", "scissors"]
+    const randomSVG = moves[Math.floor(Math.random() * 3)]
+
     return (
         <div className="center-game !justify-normal">
             <div className="mt-20 flex flex-col items-center justify-between h-52 w-full max-w-[550px]">
@@ -14,15 +13,10 @@ const Game = () => {
                     <Section>
                         <h2>Your score: 0</h2>
                         <div className="flex gap-2">
-                            <SvgContainer>
-                                <Rock />
-                            </SvgContainer>
-                            <SvgContainer>
-                                <Paper />
-                            </SvgContainer>
-                            <SvgContainer>
-                                <Scissors />
-                            </SvgContainer>
+                            {moves.map(move => {
+                                const svg = useSVG(move)
+                                return <SvgContainer onClick={handleClick}>{svg}</SvgContainer>
+                            })}
                         </div>
                     </Section>
                     <Section>
