@@ -22,6 +22,7 @@ export const Video = ({ video }) => {
                 playsInline
                 loop
                 muted
+                loading="lazy"
             >
                 <source src={video} type="video/mp4" />
             </video>
