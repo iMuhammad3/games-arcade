@@ -1,5 +1,5 @@
+import React from 'react'
 import { Outlet } from "react-router-dom";
-import logo from "../../assets/just-games.jpeg";
 import Header from "../../components/Header/Header";
 
 const Game = () => {

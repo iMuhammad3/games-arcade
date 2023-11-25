@@ -1,3 +1,4 @@
+import React from 'react'
 export const Character = ({ char, correct }) => {
     let color = "text-red-500 underline";
     // if correct is undefined then leave the text as white

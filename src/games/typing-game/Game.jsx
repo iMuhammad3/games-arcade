@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ThreeDots } from "react-loader-spinner";
 import Timer from "./components/Timer";
 import { Character } from "./components/Character";

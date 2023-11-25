@@ -10,7 +10,6 @@ const Home = () => {
         <div className="flex flex-col min-h-[100dvh]">
             <Header />
             <Main />
-            <Background />
         </div>
     );
 };

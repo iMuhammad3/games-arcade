@@ -1,4 +1,5 @@
 // Main.jsx
+import React from 'react'
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/Buttons/Button";
 import animation from '../../assets/animation.gif'
