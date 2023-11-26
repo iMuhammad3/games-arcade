@@ -93,9 +93,9 @@ const checkWinner = (userMove, computerMove) => {
     ) {
         return "user";
     } else if (
-        (userMove === "rock" && computerMove === "scissors") ||
-        (userMove === "paper" && computerMove === "rock") ||
-        (userMove === "scissors" && computerMove === "paper")
+        (computerMove === "rock" && userMove === "scissors") ||
+        (computerMove === "paper" && userMove === "rock") ||
+        (computerMove === "scissors" && userMove === "paper")
     ) {
         return "computer";
     } else {
