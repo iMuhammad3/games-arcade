@@ -49,8 +49,8 @@ const Game = () => {
     };
 
     return (
-        <div className="center-game !justify-normal">
-            <div className="mt-20 flex flex-col items-center justify-between gap-10 w-full max-w-[550px]">
+        <div className="center-game ">
+            <div className="-mt-10 flex flex-col items-center justify-between gap-10 w-full max-w-[550px]">
                 <h1 className="text-center">
                     Round {round} of {maxRound}
                 </h1>
@@ -69,6 +69,7 @@ const Game = () => {
                                 const svg = useSVG(move);
                                 return (
                                     <SvgContainer
+                                        key={index}
                                         onClick={() => handleClick(index)}
                                     >
                                         {svg}
@@ -92,9 +93,9 @@ const checkWinner = (userMove, computerMove) => {
     ) {
         return "user";
     } else if (
-        (userMove === "rock" && computerMove === "paper") ||
-        (userMove === "paper" && computerMove === "scissors") ||
-        (userMove === "scissors" && computerMove === "rock")
+        (userMove === "rock" && computerMove === "scissors") ||
+        (userMove === "paper" && computerMove === "rock") ||
+        (userMove === "scissors" && computerMove === "paper")
     ) {
         return "computer";
     } else {
