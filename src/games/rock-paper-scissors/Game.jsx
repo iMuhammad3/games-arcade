@@ -18,26 +18,30 @@ const Game = () => {
     const moves = ["rock", "paper", "scissors"];
     const [state, dispatch] = useReducer(gameReducer, initialState);
 
-    const { message, round, maxRound, randomMove, userScore, computerScore } = state;
+    const { message, round, maxRound, randomMove, userScore, computerScore } =
+        state;
 
     const handleClick = index => {
         if (round === maxRound) {
             // game ends
-            dispatch({type: SET_MESSAGE, payload: "Game over!"})
+            dispatch({ type: SET_MESSAGE, payload: "Game over!" });
             return;
         }
-        const winner = checkWinner(moves[index], randomMove)
+        const winner = checkWinner(moves[index], randomMove);
         if (winner === "user") {
             // user wins
-            dispatch({type: SET_USER_SCORE, payload: userScore + 1})
+            dispatch({ type: SET_USER_SCORE, payload: userScore + 1 });
         } else if (winner === "computer") {
             // computer wins
-            dispatch({type: SET_COMPUTER_SCORE, payload: computerScore + 1})
+            dispatch({ type: SET_COMPUTER_SCORE, payload: computerScore + 1 });
         } else {
             //draw
         }
-        dispatch({type: SET_ROUND, payload: round + 1})
-        dispatch({type: SET_RANDOM_MOVE, payload: moves[Math.floor(Math.random() * 3)]})
+        dispatch({ type: SET_ROUND, payload: round + 1 });
+        dispatch({
+            type: SET_RANDOM_MOVE,
+            payload: moves[Math.floor(Math.random() * 3)],
+        });
     };
 
     const restartGame = () => {
