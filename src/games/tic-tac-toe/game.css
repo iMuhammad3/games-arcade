@@ -30,7 +30,16 @@
     content: "";
     position: absolute;
     inset: 0;
-    border: 2px solid;
+    border: 3px solid;
     pointer-events: none;
     @apply border-slate-850
+}
+
+@media (max-width: 768px){
+    .X::after, .X::before{
+        width: 8px;
+    }
+    .O::after{
+        border-width: 8px;
+    }
 }
