@@ -10,6 +10,7 @@ import TicTacToe from './tic-tac-toe/Game'
 import TicVid from '../assets/game-videos/tic-tac-toe.mp4'
 
 import RockGame from './rock-paper-scissors/Game'
+import RockVid from '../assets/game-videos/rock-paper-scissors.mp4'
 
 const GAMES = [
     {
@@ -34,7 +35,7 @@ const GAMES = [
         id: 4,
         name: "rock-paper-scissors",
         element: <RockGame />,
-        video_url: null,
+        video_url: RockVid,
     },
 ]
 
