@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-import { Video } from "./Video";
+import { Preview } from "./Preview";
 
 export const GameElement = ({ game, formattedName }) => {
 
@@ -11,7 +11,7 @@ export const GameElement = ({ game, formattedName }) => {
         >
             <Link to={`/game/${game.name}`}>
                 <div className="relative rounded overflow-hidden">
-                    <Video video={game.video_url} />
+                <Preview video={game.video_url} img={game.img_url} />
                 </div>
                 <p className="text-lg md:text-xl py-3">
                     {formattedName(game.name)}
