@@ -15,6 +15,7 @@ import TicImg from '../assets/game-images/tic-tac-toe.png'
 import RockGame from './rock-paper-scissors/Game'
 import RockVid from '../assets/game-videos/rock-paper-scissors.mp4'
 import RockImg from '../assets/game-images/rock-paper-scissors.png'
+import { Memory } from './memory-game/Game'
 
 const GAMES = [
     {
@@ -44,6 +45,13 @@ const GAMES = [
         element: <RockGame />,
         video_url: RockVid,
         img_url: RockImg,
+    },
+    {
+        id: 5,
+        name: "memory-game",
+        element: <Memory />,
+        video_url: null,
+        img_url: null,
     },
 ]
 
