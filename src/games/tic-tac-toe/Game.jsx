@@ -72,7 +72,7 @@ const Game = () => {
     return (
         <div className="center-game gap-4 overflow-hidden">
             <h2>{message}</h2>
-            <div id="board" className="grid grid-cols-3 relative">
+            <div id="board" className="grid grid-cols-3 relative w-full max-w-md">
                 {board.map((square, index) => (
                     <Square turn={square} onClick={() => handleClick(index)} />
                 ))}
