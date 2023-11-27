@@ -15,7 +15,10 @@ import TicImg from '../assets/game-images/tic-tac-toe.png'
 import RockGame from './rock-paper-scissors/Game'
 import RockVid from '../assets/game-videos/rock-paper-scissors.mp4'
 import RockImg from '../assets/game-images/rock-paper-scissors.png'
-import { Memory } from './memory-game/Game'
+
+import Memory from './memory-game/Game'
+import MemoryVid from '../assets/game-videos/memory.mp4'
+import MemoryImg from '../assets/game-images/memory.png'
 
 const GAMES = [
     {
@@ -50,8 +53,8 @@ const GAMES = [
         id: 5,
         name: "memory-game",
         element: <Memory />,
-        video_url: null,
-        img_url: null,
+        video_url: MemoryVid,
+        img_url: MemoryImg,
     },
 ]
 
