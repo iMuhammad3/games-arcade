@@ -20,6 +20,8 @@ import Memory from './memory-game/Game'
 import MemoryVid from '../assets/game-videos/memory.mp4'
 import MemoryImg from '../assets/game-images/memory.png'
 
+import Quiz from './quiz/Game'
+
 const GAMES = [
     {
         id: 1,
@@ -55,6 +57,13 @@ const GAMES = [
         element: <Memory />,
         video_url: MemoryVid,
         img_url: MemoryImg,
+    },
+    {
+        id: 6,
+        name: "quiz",
+        element: <Quiz />,
+        video_url: null,
+        img_url: null,
     },
 ]
 
