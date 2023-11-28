@@ -84,7 +84,7 @@ const Game = () => {
                                 </div>
                             </div>
                         ) : (
-                            <ThreeDots />
+                            <ThreeDots color="lightblue" />
                         )}
                     </div>
                 )}
