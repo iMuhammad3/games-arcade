@@ -59,7 +59,7 @@ const Game = () => {
                         <Button onClick={restartQuiz}>Restart</Button>
                     </div>
                 ) : (
-                    <>
+                    <div className={!loaded && `center-game`}>
                         {loaded ? (
                             <div className="p-4">
                                 <h2>
@@ -86,7 +86,7 @@ const Game = () => {
                         ) : (
                             <ThreeDots />
                         )}
-                    </>
+                    </div>
                 )}
             </div>
         </div>
