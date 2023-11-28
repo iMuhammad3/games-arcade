@@ -12,11 +12,9 @@ const GamePage = () => {
         return name.split("-").join(" ").toUpperCase();
     };
 
-    const filteredGames = GAMES.map(game =>{
-        if(formattedName(game.name).includes(userInput.toUpperCase())){
-            return <GameElement formattedName={formattedName} game={game} />
-        }
-    });
+    const filteredGames = GAMES.filter(game =>
+        formattedName(game.name).includes(userInput.toUpperCase())
+    );
 
     return (
         <div className="flex flex-col">
@@ -30,7 +28,17 @@ const GamePage = () => {
                     />
                     <Categories />
                 </div>
-                <ul className="my-8 font-serif flex flex-wrap justify-center gap-8 px-4 md:px-16">{filteredGames}</ul>
+                <ul className="my-8 font-serif flex flex-wrap justify-center gap-8 px-4 md:px-16">
+                    {
+                        filteredGames.length > 0 ? (
+                            filteredGames.map(game => {
+                                return <GameElement key={game.id} formattedName={formattedName} game={game} />
+                            })
+                        ) : (
+                            <p>{`No results for ${userInput}...`}</p>
+                        )
+                    }
+                </ul>
             </main>
         </div>
     );
