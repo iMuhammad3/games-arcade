@@ -29,3 +29,22 @@ For CI servers and headless environments, generate a new token with firebase log
 [debug] [2023-11-27T16:31:09.395Z] Timeout reached making request to https://firebase.googleapis.com/v1beta1/projects/mask-games (original: The user aborted a request.)
 [error] 
 [error] Error: Assertion failed: resolving hosting target of a site with no site name or target name. This should have caused an error earlier
+[debug] [2023-11-28T15:43:02.595Z] ----------------------------------------------------------------------
+[debug] [2023-11-28T15:43:02.597Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2023-11-28T15:43:02.598Z] CLI Version:   12.9.1
+[debug] [2023-11-28T15:43:02.598Z] Platform:      darwin
+[debug] [2023-11-28T15:43:02.598Z] Node Version:  v18.0.0
+[debug] [2023-11-28T15:43:02.602Z] Time:          Tue Nov 28 2023 16:43:02 GMT+0100 (West Africa Standard Time)
+[debug] [2023-11-28T15:43:02.602Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-11-28T15:43:02.709Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-11-28T15:43:02.709Z] > authorizing via signed-in user (maskelite365@gmail.com)
+[debug] [2023-11-28T15:43:02.709Z] [iam] checking project mask-games for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-11-28T15:43:02.711Z] > refreshing access token with scopes: []
+[debug] [2023-11-28T15:43:02.722Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-11-28T15:43:02.723Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-11-28T15:43:03.710Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-11-28T15:43:03.710Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-11-28T15:43:03.740Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/mask-games:testIamPermissions [none]
+[debug] [2023-11-28T15:43:03.740Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/mask-games:testIamPermissions x-goog-quota-user=projects/mask-games
+[debug] [2023-11-28T15:43:03.741Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mask-games:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
