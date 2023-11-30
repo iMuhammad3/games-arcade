@@ -74,7 +74,7 @@ const Game = () => {
           value={userInput.join("")}
           onChange={handleInput}
           rows="7"
-          className="bg-slate-850 font-sans px-4 py-2 w-full rounded outline-none resize-none"
+          className="bg-slate-850 font-serif px-4 py-2 w-full rounded outline-none resize-none"
         ></textarea>
       </div>
     </>
