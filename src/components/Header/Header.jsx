@@ -7,7 +7,7 @@ import logo from '../../assets/just-games.png'
 
 function Header() {
     return (
-        <header className="sticky top-0 flex items-center justify-between px-6 md:px-16 py-3 bg-slate-900/95 z-40">
+        <header className="sticky top-0 flex items-center justify-between px-6 md:px-16 py-3 bg-nightblue-900/95 z-40">
             <Link to="/">
                 <img
                     className="aspect-square w-12 md:w-14 rounded-md"

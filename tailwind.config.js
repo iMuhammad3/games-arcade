@@ -9,8 +9,8 @@ export default {
     extend: {
       colors: {
         "slate-750": "rgb(45,52,80)",
-        "slate-850": "rgb(27,37,65)",
-        "slate-950": "rgb(7,16,40)",
+        "nightblue-800": "hsl(222.22,49.09%,10.78%)",
+        "nightblue-900": "hsl(222.86,48.84%,8.43%)",
       },
       fontFamily: {
         "sans": ["Poppins", "sans-serif"],

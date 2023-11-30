@@ -32,7 +32,7 @@
     inset: 0;
     border: 3px solid;
     pointer-events: none;
-    @apply border-slate-850
+    @apply border-nightblue-800
 }
 
 @media (max-width: 768px){
