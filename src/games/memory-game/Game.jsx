@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Image } from "./components/Image";
-import Logo from "../../assets/just-games.jpeg";
+import Logo from "../../assets/just-games.png";
 
 const images = [
     {

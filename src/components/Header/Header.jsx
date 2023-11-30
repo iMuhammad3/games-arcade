@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { HomeSVG } from "../svgs/Home";
 import { GamePadSVG } from "../svgs/GamePad";
 import { CustomLink } from "./CustomLink";
-import logo from '../../assets/just-games.jpeg'
+import logo from '../../assets/just-games.png'
 
 function Header() {
     return (
