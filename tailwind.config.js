@@ -8,7 +8,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        "slate-750": "rgb(45,52,80)",
+        "nightblue-700": "hsl(218.29,45%,23.67%)",
         "nightblue-800": "hsl(222.22,49.09%,10.78%)",
         "nightblue-900": "hsl(222.86,48.84%,8.43%)",
       },

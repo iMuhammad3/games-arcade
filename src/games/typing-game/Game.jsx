@@ -67,7 +67,7 @@ const Game = () => {
   const GameUI = (
     <>
       <Timer />
-      <div className="bg-slate-800 md:w-[550px] w-full mx-2 md:mx-0 p-4 flex flex-col gap-4 rounded-md shadow-lg">
+      <div className="bg-nightblue-700 md:w-[550px] w-full mx-2 md:mx-0 p-4 flex flex-col gap-4 rounded-md shadow-lg">
         <p className="text-lg">{characters()}</p>
         <textarea
           ref={textareaRef}

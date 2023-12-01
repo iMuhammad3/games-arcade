@@ -7,7 +7,7 @@ export const SearchInput = ({ userInput, setUserInput }) => {
             <input
                 value={userInput}
                 onChange={e => setUserInput(e.target.value)}
-                className="bg-slate-750 placeholder:text-slate-300 w-full md:w-80 px-5 py-2 rounded-lg shadow outline-none"
+                className="bg-nightblue-700 placeholder:text-slate-300 w-full md:w-80 px-5 py-2 rounded-lg shadow outline-none"
                 type="text"
                 placeholder="Search Games..."
             />

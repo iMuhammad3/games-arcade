@@ -7,7 +7,7 @@ export const GameElement = ({ game, formattedName }) => {
     return (
         <li
             key={game.id}
-            className="bg-gray-900 max-w-[340px] w-full px-2 pt-2 rounded-md relative"
+            className="bg-nightblue-700 max-w-[340px] w-full px-2 pt-2 rounded-md relative"
         >
             <Link to={`/game/${game.name}`}>
                 <div className="relative rounded overflow-hidden">
