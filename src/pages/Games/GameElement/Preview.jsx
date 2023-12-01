@@ -5,7 +5,7 @@ export const Preview = ({ video, img }) => {
     const isMobile = /mobi|android/i.test(navigator.userAgent);
 
     const placeholder = (
-        <div className="absolute inset-0 bg-gradient-to-tr from-cyan-600 to-sky-700 grid place-items-center text-lg">
+        <div className="absolute inset-0 bg-gradient-to-tr from-nightblue-800 to-nightblue-900 grid place-items-center text-lg">
             Waiting for preview...
         </div>
     );
