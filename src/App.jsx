@@ -41,9 +41,9 @@ const App = () => {
             <Helmet>
                 <link
                     rel="preload"
-                    href="./assets/fonts/Poppins-Medium.ttf"
+                    href="/assets/fonts/Poppins-Medium.ttf"
                     as="font"
-                    crossorigin
+                    crossorigin="anonymous"
                 />
             </Helmet>
         </>
