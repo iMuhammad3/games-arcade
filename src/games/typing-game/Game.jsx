@@ -9,6 +9,7 @@ import { generate } from "random-words";
 const Game = () => {
     const textareaRef = useRef();
     const [time, setTime] = useState(0);
+    const [startTime, setStartTime] = useState(new Date().getTime())
     const [WPM, setWPM] = useState(0); // Words Per Minute
     const [userInput, setUserInput] = useState([]);
     const [charArray, setCharArray] = useState([]);
@@ -19,8 +20,6 @@ const Game = () => {
         correct: "#22c55e",
         wrong: "#e84445",
     });
-
-    const startTime = new Date().getTime();
 
     useEffect(() => {
         // fetches a random quote from api
@@ -47,7 +46,7 @@ const Game = () => {
             }
             case "medium": {
                 setCharArray(
-                    generate({ min: 20, max: 30 }).join(" ").split("")
+                    generate({ min: 13, max: 22 }).join(" ").split("")
                 );
                 setIsLoaded(true);
                 break;
@@ -77,6 +76,7 @@ const Game = () => {
         }
         // reset time
         setTime(0);
+        setStartTime(new Date().getTime())
 
         // Check if textareaRef.current is not null before calling focus
         if (textareaRef.current) {
