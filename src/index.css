@@ -19,5 +19,5 @@ h2{
 }
 
 .center-game{
-    @apply flex-grow flex flex-col items-center justify-center 
+    @apply flex-grow flex flex-col items-center justify-center relative
 }
