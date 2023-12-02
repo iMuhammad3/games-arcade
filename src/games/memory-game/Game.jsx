@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Image } from "./components/Image";
 import Logo from "../../assets/just-games.png";
+import { GameSettings } from "./components/GameSettings";
 
 const images = [
     {
@@ -90,6 +91,7 @@ const Memory = () => {
 
     return (
         <div className="center-game gap-5">
+            <GameSettings />
             <h1 className="-mt-10">{message}</h1>
             <div className="grid grid-cols-4 w-full max-w-lg border">
                 {images.map((image, index) => (

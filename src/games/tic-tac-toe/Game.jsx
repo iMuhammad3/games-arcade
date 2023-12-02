@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Square } from "./components/Square";
 import Button from '../../components/Buttons/Button'
 import "./game.css";
+import { GameSettings } from "./components/GameSettings";
 
 const X = "X";
 const O = "O";
@@ -71,6 +72,7 @@ const Game = () => {
 
     return (
         <div className="center-game gap-4 overflow-hidden">
+            <GameSettings />
             <h2>{message}</h2>
             <div id="board" className="grid grid-cols-3 relative w-full max-w-md">
                 {board.map((square, index) => (

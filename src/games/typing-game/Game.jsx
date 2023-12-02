@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { ThreeDots } from "react-loader-spinner";
 import Timer from "./components/Timer";
 import { Character } from "./components/Character";
+import { GameSettings } from "./components/GameSettings";
 
 const Game = () => {
   const textareaRef = useRef()
@@ -67,7 +68,7 @@ const Game = () => {
   const GameUI = (
     <>
       <Timer />
-      <div className="bg-nightblue-700 md:w-[550px] w-full mx-2 md:mx-0 p-4 flex flex-col gap-4 rounded-md shadow-lg">
+      <div className="bg-nightblue-700 font-serif md:w-[550px] w-full mx-2 md:mx-0 p-4 flex flex-col gap-4 rounded-md shadow-lg">
         <p className="text-lg">{characters()}</p>
         <textarea
           ref={textareaRef}
@@ -81,7 +82,8 @@ const Game = () => {
   );
 
   return (
-    <div className="gap-10 center-game font-serif">
+    <div className="gap-10 center-game">
+      <GameSettings />
       {isLoaded ? GameUI : <ThreeDots color="lightblue" />}
     </div>
   );

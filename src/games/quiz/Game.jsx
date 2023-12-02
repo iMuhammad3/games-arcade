@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { ThreeDots } from "react-loader-spinner";
-import { Option } from "./Components/Option";
+import { Option } from "./components/Option";
 import Button from "../../components/Buttons/Button";
+import { GameSettings } from "./components/GameSettings";
 
 const API_URL =
     "https://opentdb.com/api.php?amount=8&difficulty=easy&type=multiple";
@@ -44,11 +45,9 @@ const Game = () => {
         setScore(0)
     }
 
-    console.log(quiz);
-    console.log(options);
-
     return (
         <div className="center-game">
+            <GameSettings />
             <div className=" max-w-xl w-full rounded border-2 bg-slate-750">
                 <header className="bg-slate-800 p-3 text-center text-2xl">
                     General Knowledge

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Square } from "./components/Square";
 import "./game.css";
+import { GameSettings } from "./components/GameSettings";
 
 const Game = () => {
     const [score, setScore] = useState(0);
@@ -57,6 +58,7 @@ const Game = () => {
 
     return (
         <div className="center-game gap-4">
+            <GameSettings />
             <section className="flex flex-col md:flex-row justify-between gap-2 md:w-[450px] border rounded p-2">
                 <h2>Time Left: {time}</h2>
                 <h2>Score: {score}</h2>

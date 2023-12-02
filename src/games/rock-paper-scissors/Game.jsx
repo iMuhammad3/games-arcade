@@ -13,6 +13,8 @@ import {
     gameReducer,
     initialState,
 } from "./components/GameReducer";
+import { GameSettings } from "./components/GameSettings";
+
 
 const Game = () => {
     const moves = ["rock", "paper", "scissors"];
@@ -50,6 +52,7 @@ const Game = () => {
 
     return (
         <div className="center-game ">
+            <GameSettings />
             <div className="-mt-10 flex flex-col items-center justify-between gap-10 w-full max-w-[550px]">
                 <h1 className="text-center">
                     Round {round} of {maxRound}
