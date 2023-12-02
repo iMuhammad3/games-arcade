@@ -1,0 +1,39 @@
+section{
+    border-bottom: 1px solid;
+    padding: 8px 4px;
+}
+
+.color-settings{
+    padding: 0 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.color-settings > li{
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 300;
+}
+
+/* custom color inputs */
+
+input[type="color"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 36px;
+    height: 36px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  input[type="color"]::-webkit-color-swatch {
+    border-radius: 50%;
+    border: none;
+  }
+  input[type="color"]::-moz-color-swatch {
+    border-radius: 50%;
+    border: none;
+  }
