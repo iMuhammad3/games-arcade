@@ -21,3 +21,7 @@ h2{
 .center-game{
     @apply flex-grow flex flex-col items-center justify-center relative
 }
+
+.col{
+    @apply flex flex-col
+}
