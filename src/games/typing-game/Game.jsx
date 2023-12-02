@@ -21,7 +21,8 @@ const Game = () => {
         setIsLoaded(true);
       } catch (err) {
         console.error(err);
-        setIsLoaded(false);
+      } finally {
+        setIsLoaded(true);
       }
     };
 
