@@ -13,7 +13,7 @@ const Game = () => {
     const [userInput, setUserInput] = useState([]);
     const [charArray, setCharArray] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
-    const [difficulty, setDifficulty] = useState("medium");
+    const [difficulty, setDifficulty] = useState("easy");
     const [colors, setColors] = useState({
         default: "#dbebfe",
         correct: "#22c55e",
