@@ -14,10 +14,10 @@ export const GameModal = ({ children, setIsModal, isModal }) => {
                     id="modal"
                     onClick={closeModal}
                     className={
-                        "absolute inset-0 flex justify-center items-center overflow-hidden bg-black/40 z-50"
+                        "absolute inset-0 flex justify-center items-center overflow-hidden bg-nightblue-900/90 z-50"
                     }
                 >
-                    <article className="flex flex-col gap-3 relative p-3 w-96 rounded shadow bg-nightblue-700">
+                    <article className="flex flex-col gap-3 relative p-3 mx-4 w-full max-w-[400px] rounded shadow bg-nightblue-700">
                         <span
                             onClick={() => setIsModal(false)}
                             className="absolute top-6 right-8 cursor-pointer"
