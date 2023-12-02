@@ -1,10 +1,10 @@
 import React from "react";
 import Timer from "./components/Timer";
 
-export const GameUI = ({ handleInput, characters, userInput, textareaRef, WPM }) => {
+export const GameUI = ({ handleInput, characters, userInput, textareaRef, WPM, time, setTime }) => {
     return (
         <>
-            <Timer />
+            <Timer time={time} setTime={setTime} />
             <div>Word's Per Minute: {WPM}</div>
             <div className="bg-nightblue-700 font-serif md:w-[550px] w-full mx-2 md:mx-0 p-4 flex flex-col gap-4 rounded-md shadow-lg">
                 <p className="text-lg">{characters()}</p>

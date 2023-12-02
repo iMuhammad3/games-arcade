@@ -4,18 +4,21 @@ import { Character } from "./components/Character";
 import { GameSettings } from "./components/GameSettings";
 import { GameUI } from "./GameUI";
 import { useWPM } from "./hooks/useWPM";
+import { generate } from "random-words";
 
 const Game = () => {
     const textareaRef = useRef();
+    const [time, setTime] = useState(0);
     const [WPM, setWPM] = useState(0); // Words Per Minute
     const [userInput, setUserInput] = useState([]);
     const [charArray, setCharArray] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
+    const [difficulty, setDifficulty] = useState("medium");
     const [colors, setColors] = useState({
-      default: "#dbebfe",
-      correct: "#22c55e",
-      wrong: "#e84445"
-    })
+        default: "#dbebfe",
+        correct: "#22c55e",
+        wrong: "#e84445",
+    });
 
     const startTime = new Date().getTime();
 
@@ -26,8 +29,8 @@ const Game = () => {
                 const response = await fetch("https://api.quotable.io/random");
                 const data = await response.json();
                 // data is an object and data.content is the actual quote
-                setCharArray(data.content.split(""));
                 setIsLoaded(true);
+                return data.content.split("");
             } catch (err) {
                 console.error(err);
             } finally {
@@ -35,15 +38,51 @@ const Game = () => {
             }
         };
 
-        if (!isLoaded) {
-            fetchData();
+        switch (difficulty) {
+            case "easy": {
+                fetchData().then(result => {
+                    setCharArray(result);
+                });
+                break;
+            }
+            case "medium": {
+                setCharArray(
+                    generate({ min: 20, max: 30 }).join(" ").split("")
+                );
+                setIsLoaded(true);
+                break;
+            }
+            case "hard": {
+                const scrambledCharArray = () => {
+                    const randomWords = generate({
+                        min: 7,
+                        max: 15,
+                    });
+
+                    const scrambledString = randomWords
+                        .map(word =>
+                            word
+                                .split("")
+                                .sort(() => 0.5 - Math.random())
+                                .join("")
+                        )
+                        .join(" ");
+
+                    return scrambledString.split("");
+                };
+                setCharArray(scrambledCharArray());
+                setIsLoaded(true);
+                break;
+            }
         }
+        // reset time
+        setTime(0);
 
         // Check if textareaRef.current is not null before calling focus
         if (textareaRef.current) {
             textareaRef.current.focus();
         }
-    }, [isLoaded]);
+    }, [isLoaded, difficulty]);
 
     const handleCorrect = async () => {
         setUserInput([]);
@@ -85,9 +124,16 @@ const Game = () => {
 
     return (
         <div className="gap-7 center-game">
-            <GameSettings colors={colors} setColors={setColors} />
+          <GameSettings
+              colors={colors}
+              setColors={setColors}
+              difficulty={difficulty}
+              setDifficulty={setDifficulty}
+          />
             {isLoaded ? (
                 <GameUI
+                    time={time}
+                    setTime={setTime}
                     WPM={WPM}
                     characters={characters}
                     handleInput={handleInput}

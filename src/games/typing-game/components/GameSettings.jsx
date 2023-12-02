@@ -4,7 +4,7 @@ import { GearWrapper } from "../../../components/svgs/wrappers/GearWrapper";
 import { Select } from "../../../components/select/Select";
 import "./GameSettings.css";
 
-export const GameSettings = ({ colors, setColors }) => {
+export const GameSettings = ({ colors, setColors, difficulty, setDifficulty }) => {
     const [isModal, setIsModal] = useState(false);
 
     return (
@@ -12,11 +12,11 @@ export const GameSettings = ({ colors, setColors }) => {
             <GearWrapper onClick={() => setIsModal(true)} />
             <GameModal isModal={isModal} setIsModal={setIsModal}>
                 <section className="flex items-center justify-between">
-                    <p>Word Length: </p>
-                    <Select className="border !py-1">
-                        <option>Short</option>
-                        <option>Medium</option>
-                        <option>Long</option>
+                    <p>Difficulty: </p>
+                    <Select className="border !py-1" value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
                     </Select>
                 </section>
                 <section>

@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
-const Timer = () => {
-    const [time, setTime] = useState(0);
+const Timer = ({time, setTime}) => {
 
     useEffect(() => {
         const intervalId = setInterval(() => {
