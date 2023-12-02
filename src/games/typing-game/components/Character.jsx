@@ -1,8 +1,16 @@
-import React from 'react'
-export const Character = ({ char, correct }) => {
-    let color = "text-red-500 underline";
+import React from "react";
+export const Character = ({ char, correct, colors }) => {
+    let color = colors.default;
+    let className
     // if correct is undefined then leave the text as white
-    if (correct === undefined) color = "text-midnightblue";
-    if (correct) color = "text-green-500";
-    return <span className={color}>{char}</span>;
-}
+    if (correct === false) {
+        color = colors.wrong;
+        className = "underline";
+    }
+    if (correct) color = colors.correct;
+    return (
+        <span style={{ color: color }} className={className}>
+            {char}
+        </span>
+    );
+};

@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { GameModal } from "../../../components/modals/GameModal";
 import { GearWrapper } from "../../../components/svgs/wrappers/GearWrapper";
 import { Select } from "../../../components/select/Select";
-import './GameSettings.css'
+import "./GameSettings.css";
 
-export const GameSettings = () => {
+export const GameSettings = ({ colors, setColors }) => {
     const [isModal, setIsModal] = useState(false);
 
     return (
@@ -24,15 +24,42 @@ export const GameSettings = () => {
                     <ul className="color-settings">
                         <li>
                             <p>Correct Letter: </p>
-                            <input type="color" />
+                            <input
+                                type="color"
+                                value={colors.correct}
+                                onChange={e =>
+                                    setColors(prev => ({
+                                        ...prev,
+                                        correct: e.target.value,
+                                    }))
+                                }
+                            />
                         </li>
                         <li>
                             <p>Wrong Letter: </p>
-                            <input type="color" />
+                            <input
+                                type="color"
+                                value={colors.wrong}
+                                onChange={e =>
+                                    setColors(prev => ({
+                                        ...prev,
+                                        wrong: e.target.value,
+                                    }))
+                                }
+                            />
                         </li>
                         <li>
                             <p>Default Letter: </p>
-                            <input type="color" />
+                            <input
+                                type="color"
+                                value={colors.default}
+                                onChange={e =>
+                                    setColors(prev => ({
+                                        ...prev,
+                                        default: e.target.value,
+                                    }))
+                                }
+                            />
                         </li>
                     </ul>
                 </section>

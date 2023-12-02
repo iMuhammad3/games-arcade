@@ -11,6 +11,11 @@ const Game = () => {
     const [userInput, setUserInput] = useState([]);
     const [charArray, setCharArray] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
+    const [colors, setColors] = useState({
+      default: "#dbebfe",
+      correct: "#22c55e",
+      wrong: "#e84445"
+    })
 
     const startTime = new Date().getTime();
 
@@ -72,6 +77,7 @@ const Game = () => {
                     }
                     char={char}
                     key={index}
+                    colors={colors}
                 />
             ));
         }
@@ -79,7 +85,7 @@ const Game = () => {
 
     return (
         <div className="gap-7 center-game">
-            <GameSettings />
+            <GameSettings colors={colors} setColors={setColors} />
             {isLoaded ? (
                 <GameUI
                     WPM={WPM}
