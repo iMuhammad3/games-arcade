@@ -20,9 +20,9 @@ export const GameModal = ({ children, setIsModal, isModal }) => {
                     <article className="flex flex-col gap-3 relative p-3 mx-4 w-full max-w-[400px] rounded shadow bg-nightblue-700">
                         <span
                             onClick={() => setIsModal(false)}
-                            className="absolute top-6 right-8 cursor-pointer"
+                            className="text-xl font-light absolute top-3 right-4 cursor-pointer leading-4 p-1"
                         >
-                            x
+                            &times;
                         </span>
                         <h1 className="text-center">Settings</h1>
                         {children}
