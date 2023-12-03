@@ -4,7 +4,7 @@ import { GearWrapper } from "../../../components/svgs/wrappers/GearWrapper";
 import { Select } from "../../../components/select/Select";
 import { SettingOption } from "../../../components/helpers/SettingOption";
 
-export const GameSettings = ({ setFile }) => {
+export const GameSettings = ({ setFile, difficulty, setDifficulty }) => {
     const [isModal, setIsModal] = useState(false);
 
     return (
@@ -13,7 +13,7 @@ export const GameSettings = ({ setFile }) => {
             <GameModal isModal={isModal} setIsModal={setIsModal}>
                 <SettingOption className="row-center">
                     <p>Difficulty: </p>
-                    <Select className="border !py-1">
+                    <Select value={difficulty} onChange={(e) => setDifficulty(e.target.value)} className="border !py-1">
                         <option value="super-easy">Super Easy</option>
                         <option value="easy">Easy</option>
                         <option value="medium">Medium</option>
