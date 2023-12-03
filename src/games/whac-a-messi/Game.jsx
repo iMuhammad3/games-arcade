@@ -5,16 +5,15 @@ import { GameSettings } from "./components/GameSettings";
 
 const Game = () => {
     const [score, setScore] = useState(0);
-    const [time, setTime] = useState(30);
-    const [squares, setSquares] = useState([]);
+    const [time, setTime] = useState(5);
+    const [squares, setSquares] = useState(
+        Array(9)
+            .fill(null)
+            .map(() => ({ messi: false }))
+    );
     const [gameActive, setGameActive] = useState(true);
 
     useEffect(() => {
-        // Initialize squares when the component mounts
-        const initialSquares = Array(9)
-            .fill(null)
-            .map(() => ({ messi: false }));
-        setSquares(initialSquares);
 
         const countDownId = setInterval(() => {
             setTime(prevTime => {
@@ -38,11 +37,6 @@ const Game = () => {
                 return newSquares;
             });
         }, 600);
-
-        if (time == 0) {
-            clearInterval(countDownId);
-            clearInterval(randomId);
-        }
 
         return () => {
             clearInterval(countDownId);
