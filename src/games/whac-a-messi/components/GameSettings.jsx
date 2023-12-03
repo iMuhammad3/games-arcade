@@ -4,7 +4,7 @@ import { GearWrapper } from "../../../components/svgs/wrappers/GearWrapper";
 import { Select } from "../../../components/select/Select";
 import { SettingOption } from "../../../components/helpers/SettingOption";
 
-export const GameSettings = ({setFile}) => {
+export const GameSettings = ({ setFile }) => {
     const [isModal, setIsModal] = useState(false);
 
     return (
@@ -24,8 +24,19 @@ export const GameSettings = ({setFile}) => {
                 <SettingOption className="row-center">
                     <p>Choose a picture to whac: </p>
                     <div>
-                        <input onChange={(e) => setFile(e.target.files[0])} id="file-input" type="file" hidden />
-                        <label htmlFor="file-input" className="bg-nightblue-800 px-2 py-1 rounded cursor-pointer">Choose a file</label>
+                        <input
+                            accept="image/*,video/*"
+                            onChange={e => setFile(e.target.files[0])}
+                            id="file-input"
+                            type="file"
+                            hidden
+                        />
+                        <label
+                            htmlFor="file-input"
+                            className="bg-nightblue-800 px-2 py-1 rounded cursor-pointer"
+                        >
+                            Choose a file
+                        </label>
                     </div>
                 </SettingOption>
             </GameModal>
