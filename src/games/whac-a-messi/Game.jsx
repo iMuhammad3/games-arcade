@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Square } from "./components/Square";
 import { GameSettings } from "./components/GameSettings";
+import Button from "../../components/Buttons/Button";
 
 const Game = () => {
     const [score, setScore] = useState(0);
@@ -10,10 +11,16 @@ const Game = () => {
             .fill(null)
             .map(() => ({ hasImage: false }))
     );
-    const [gameActive, setGameActive] = useState(true);
+    const [gameActive, setGameActive] = useState(false);
     const [file, setFile] = useState(null);
 
-    useEffect(() => {
+    const startGame = () => {
+        // to avoid bugs when user spams the start button
+        if(gameActive) return;
+        setTime(5)
+        setScore(0)
+        setGameActive(true)
+
         const countDownId = setInterval(() => {
             setTime(prevTime => {
                 // Ensure the countdown doesn't go below 0
@@ -36,12 +43,7 @@ const Game = () => {
                 return newSquares;
             });
         }, 600);
-
-        return () => {
-            clearInterval(countDownId);
-            clearInterval(randomId);
-        };
-    }, []);
+    }
 
     const handleClick = index => {
         if (gameActive && squares[index].hasImage) {
@@ -68,6 +70,7 @@ const Game = () => {
                     );
                 })}
             </ul>
+            <Button onClick={startGame}>Start</Button>
         </div>
     );
 };
