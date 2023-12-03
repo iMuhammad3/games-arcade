@@ -25,7 +25,7 @@ export const GameSettings = ({ setFile }) => {
                     <p>Choose a picture to whac: </p>
                     <div>
                         <input
-                            accept="image/*,video/*"
+                            accept="image/*"
                             onChange={e => setFile(e.target.files[0])}
                             id="file-input"
                             type="file"
