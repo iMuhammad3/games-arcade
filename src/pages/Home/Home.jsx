@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../../components/Header/Header";
 import Main from "./Main";
+import { Background } from "../../components/svgs/Background";
 
 const Home = () => {
     return (
