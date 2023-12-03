@@ -24,7 +24,7 @@ export const GameModal = ({ children, setIsModal, isModal }) => {
                         >
                             &times;
                         </span>
-                        <h1 className="text-center">Settings</h1>
+                        <h2 className="text-center">Preferences</h2>
                         {children}
                     </article>
                 </div>
