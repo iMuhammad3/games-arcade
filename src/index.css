@@ -25,3 +25,7 @@ h2{
 .col{
     @apply flex flex-col
 }
+
+.row-center{
+    @apply flex items-center justify-between
+}
