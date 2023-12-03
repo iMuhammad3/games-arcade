@@ -52,7 +52,7 @@ const Game = () => {
 
     return (
         <div className="center-game ">
-            <GameSettings />
+            <GameSettings maxRound={maxRound} dispatch={dispatch} />
             <div className="-mt-10 flex flex-col items-center justify-between gap-10 w-full max-w-[550px]">
                 <h1 className="text-center">
                     Round {round} of {maxRound}

@@ -1,5 +1,6 @@
 const ACTION_TYPES = {
     SET_MESSAGE: "set_message",
+    SET_MAX_ROUND: "set_max_round",
     SET_ROUND: "set_round",
     SET_USER_SCORE: "set_user_score",
     SET_COMPUTER_SCORE: "set_computer_score",
@@ -19,6 +20,7 @@ export const initialState = {
 export const {
     SET_COMPUTER_SCORE,
     SET_MESSAGE,
+    SET_MAX_ROUND,
     SET_RANDOM_MOVE,
     SET_ROUND,
     SET_USER_SCORE,
@@ -29,6 +31,8 @@ export const gameReducer = (state, action) => {
     switch (action.type) {
         case SET_MESSAGE:
             return { ...state, message: action.payload };
+        case SET_MAX_ROUND:
+            return { ...initialState, maxRound: action.payload };
         case SET_ROUND:
             return { ...state, round: action.payload };
         case SET_USER_SCORE:
