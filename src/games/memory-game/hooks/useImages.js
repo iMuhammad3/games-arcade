@@ -1,5 +1,5 @@
 import { listAll, ref } from "firebase/storage";
-import { storage } from "../../config/firebase.config";
+import { storage } from "../../../config/firebase.config";
 import { useEffect, useState } from "react";
 
 const url = path => {
@@ -7,7 +7,7 @@ const url = path => {
 };
 
 export const useImages = () => {
-    const [isLoaded, setIsLoaded] = useState(false)
+    const [isLoaded, setIsLoaded] = useState(false);
     const [imageCategoriesArray, setImageCategoriesArray] = useState({
         natureImages: [],
         foodImages: [],
@@ -29,27 +29,31 @@ export const useImages = () => {
                     footballImages: [],
                 };
 
-                refs.forEach(async (ref, index) => {
-                    const list = await listAll(ref);
-                    list.items.forEach(item => {
-                        const path = item.fullPath.replaceAll("/", "%2F");
-                        const name = item.name;
-                        const imageObj = {
-                            name,
-                            url: url(path),
-                        };
-                        newImages[Object.keys(newImages)[index]].push(imageObj)
-                    });
-                });
-                setImageCategoriesArray(newImages)
+                await Promise.all(
+                    refs.map(async (ref, index) => {
+                        const list = await listAll(ref);
+                        list.items.forEach(item => {
+                            const path = item.fullPath.replaceAll("/", "%2F");
+                            const name = item.name;
+                            const imageObj = {
+                                name,
+                                url: url(path),
+                            };
+                            newImages[Object.keys(newImages)[index]].push(
+                                imageObj
+                            );
+                        });
+                    })
+                );
+                setImageCategoriesArray(newImages);
             } catch (error) {
-                console.error("Error fetching image URLs:", error);
+                console.error("Error fetching image URLs: ", error);
             } finally {
-                setIsLoaded(true)
+                setIsLoaded(true);
             }
         };
         fetchImages();
     }, []);
-
+console.log(imageCategoriesArray);
     return [imageCategoriesArray, isLoaded];
 };

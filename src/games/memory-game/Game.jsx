@@ -1,44 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { Image } from "./components/Image";
-import Logo from "../../assets/just-games.png";
+import Logo from "./placeholder.svg";
 import { GameSettings } from "./components/GameSettings";
-import { useImages } from "./useImages";
-
-// //duplicate images
-// natureImages.push(...natureImages);
-// //shuffle order of Images
-// natureImages.sort(() => Math.random() - 0.5);
+import { useImages } from "./hooks/useImages";
+import { useImageCategory } from "./hooks/useImageCategory";
+import { ThreeDots } from "react-loader-spinner";
 
 const Memory = () => {
     const initialMessage = "Let's test your memory!";
-    const [imageCategoriesArray, isLoaded] = useImages();
+    const [_, isLoaded] = useImages();
     const [flippedCards, setFlippedCards] = useState([]);
     const [matchedCards, setMatchedCards] = useState([]);
+    const [imageCategory, setImageCategory] = useState("any");
     const [message, setMessage] = useState(initialMessage);
-    const [visibleCards, setVisibleCards] = useState(
-        Array(imageCategoriesArray.natureImages.length).fill(false)
-    );
     const [difficulty, setDifficulty] = useState("medium");
-    const [images, setImages] = useState([]);
-    const [length, setLength] = useState(2)
-
-    const { natureImages, foodImages, footballImages } = imageCategoriesArray;
+    const images = useImageCategory(imageCategory, difficulty);
+    const [visibleCards, setVisibleCards] = useState(
+        Array(images.length).fill(false)
+    );
 
     useEffect(() => {
-        if (!isLoaded) return;
-
-        switch (difficulty) {
-            case "easy": setLength(2)
-            case "medium": setLength(3)
-            case "hard": setLength(4)
-        }
         if (flippedCards.length === 2) {
             const [firstIndex, secondIndex] = flippedCards;
 
-            if (
-                imageCategoriesArray.natureImages[firstIndex].name ===
-                imageCategoriesArray.natureImages[secondIndex].name
-            ) {
+            if (images[firstIndex].name === images[secondIndex].name) {
                 setMessage("Correct!");
                 setMatchedCards(prev => [...prev, firstIndex, secondIndex]);
             } else {
@@ -54,11 +39,8 @@ const Memory = () => {
             }, 800);
         }
 
-        if (matchedCards.length === imageCategoriesArray.natureImages.length) {
-            // setMessage("You've got it all!");
-            setMessage(
-                `Matched: ${matchedCards.length}, Images: ${imageCategoriesArray.natureImages.length}, isLoaded: ${isLoaded}`
-            );
+        if (matchedCards.length === images.length) {
+            setMessage("You've got it all!");
         }
     }, [flippedCards, matchedCards, isLoaded]);
 
@@ -77,19 +59,29 @@ const Memory = () => {
     return (
         <div className="center-game gap-5">
             <GameSettings
+                imageCategory={imageCategory}
+                setImageCategory={setImageCategory}
                 difficulty={difficulty}
                 setDifficulty={setDifficulty}
             />
-            <h1 className="-mt-10">{message}</h1>
-            <div className="grid grid-cols-4 w-full max-w-lg border">
-                {imageCategoriesArray.natureImages.map((image, index) => (
-                    <Image
-                        key={index}
-                        onClick={() => flipCard(index)}
-                        src={visibleCards[index] ? image.url : Logo}
-                    />
-                ))}
-            </div>
+            {isLoaded ? (
+                <>
+                    <h1 className="-mt-10">{message}</h1>
+                    <div className="grid grid-cols-4 w-full max-w-lg border">
+                        {images.map((image, index) => {
+                            const visible = visibleCards[index]
+                            return <Image
+                                isPlaceholder={!visible}
+                                key={index}
+                                onClick={() => flipCard(index)}
+                                src={visible ? image.url : Logo}
+                            />
+                        })}
+                    </div>
+                </>
+            ) : (
+                <ThreeDots />
+            )}
         </div>
     );
 };
