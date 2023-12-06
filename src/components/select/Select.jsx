@@ -6,7 +6,7 @@ export const Select = ({ children, className, value, onChange }) => {
             onChange={onChange}
             value={value}
             className={
-                "bg-nightblue-700 px-5 py-2 rounded-lg cursor-pointer outline-none " +
+                "bg-nightblue-700 px-5 py-1 border rounded-lg cursor-pointer outline-none " +
                 className
             }
         >
