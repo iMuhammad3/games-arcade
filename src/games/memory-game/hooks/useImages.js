@@ -54,6 +54,6 @@ export const useImages = () => {
         };
         fetchImages();
     }, []);
-console.log(imageCategoriesArray);
+
     return [imageCategoriesArray, isLoaded];
 };
