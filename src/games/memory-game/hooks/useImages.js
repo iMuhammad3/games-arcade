@@ -10,8 +10,8 @@ export const useImages = () => {
     const [isLoaded, setIsLoaded] = useState(false);
     const [imageCategoriesArray, setImageCategoriesArray] = useState({
         natureImages: [],
-        foodImages: [],
         footballImages: [],
+        foodImages: [],
     });
     const basePath = "/images/memory-images/";
 
@@ -25,8 +25,8 @@ export const useImages = () => {
 
                 const newImages = {
                     natureImages: [],
-                    foodImages: [],
                     footballImages: [],
+                    foodImages: [],
                 };
 
                 await Promise.all(

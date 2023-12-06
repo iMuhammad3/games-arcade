@@ -9,7 +9,7 @@ export const useImageCategory = (imageCategory, difficulty) => {
     const { natureImages, foodImages, footballImages } = imageCategoriesArray;
 
     const filter = (images) => {
-        const slicedImages = images.slice(0, length)
+        const slicedImages = images.sort(() => Math.random() - 0.5).slice(0, length)
         return [...slicedImages, ...slicedImages].sort(() => Math.random() - 0.5)
     }
 
@@ -19,7 +19,7 @@ export const useImageCategory = (imageCategory, difficulty) => {
         switch (imageCategory) {
             case "nature":
                 setImages(filter(natureImages));
-                b.splice
+                break;
             case "football":
                 setImages(filter(footballImages));
                 break;

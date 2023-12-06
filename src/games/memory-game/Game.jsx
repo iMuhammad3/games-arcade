@@ -6,14 +6,13 @@ import { useImages } from "./hooks/useImages";
 import { useImageCategory } from "./hooks/useImageCategory";
 import { ThreeDots } from "react-loader-spinner";
 import { useLength } from "./hooks/useLength";
+import Button from "../../components/Buttons/Button";
 
 const Memory = () => {
-    const initialMessage = "Let's test your memory!";
     const [_, isLoaded] = useImages();
     const [flippedCards, setFlippedCards] = useState([]);
     const [matchedCards, setMatchedCards] = useState([]);
     const [imageCategory, setImageCategory] = useState("any");
-    const [message, setMessage] = useState(initialMessage);
     const [difficulty, setDifficulty] = useState("easy");
     const images = useImageCategory(imageCategory, difficulty);
     const [visibleCards, setVisibleCards] = useState(
@@ -25,12 +24,8 @@ const Memory = () => {
             setTimeout(() => {
                 const [firstIndex, secondIndex] = flippedCards;
                 if (images[firstIndex].name === images[secondIndex].name) {
-                    setMessage("Correct!");
                     setMatchedCards(prev => [...prev, firstIndex, secondIndex]);
-                } else {
-                    setMessage("Nope!");
                 }
-                setMessage(initialMessage);
                 setFlippedCards([]);
                 setVisibleCards(prev =>
                     prev.map((_, index) => matchedCards.includes(index))
@@ -40,13 +35,20 @@ const Memory = () => {
     }, [flippedCards]);
 
     useEffect(() => {
-        if (matchedCards.length === images.length) {
-            setMessage("You've got it all!");
-        }
         setVisibleCards(prev =>
             prev.map((_, index) => matchedCards.includes(index))
         );
     }, [matchedCards]);
+
+    useEffect(() => {
+        resetGame()
+    }, [imageCategory, difficulty]) 
+    
+    const resetGame = () => {
+        setFlippedCards([])
+        setMatchedCards([])
+        setVisibleCards(Array(useLength(difficulty) * 2).fill(false))
+    }
 
     const flipCard = index => {
         if (flippedCards.length === 2 || visibleCards[index]) {
@@ -70,7 +72,7 @@ const Memory = () => {
             />
             {isLoaded ? (
                 <>
-                    <h1 className="-mt-10">{message}</h1>
+                    <h1 className="-mt-10">Test your memory!</h1>
                     <div className="grid grid-cols-4 w-full max-w-lg border ">
                         {images.map((image, index) => {
                             const visible = visibleCards[index];
@@ -84,6 +86,7 @@ const Memory = () => {
                             );
                         })}
                     </div>
+                    <Button onClick={resetGame}>Reset</Button>
                 </>
             ) : (
                 <ThreeDots />
