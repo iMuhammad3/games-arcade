@@ -14,7 +14,7 @@ export const GameSettings = ({ colors, setColors, difficulty, setDifficulty }) =
             <GameModal isModal={isModal} setIsModal={setIsModal}>
                 <SettingOption>
                     <p>Difficulty: </p>
-                    <Select className="border !py-1" value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
+                    <Select value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
                         <option value="easy">Easy</option>
                         <option value="medium">Medium</option>
                         <option value="hard">Hard</option>
