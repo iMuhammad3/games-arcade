@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Button from "../../components/Buttons/Button";
 import { GameSettings } from "./components/GameSettings";
 import { QuizUI } from "./QuizUI";
 
-const API_URL = (questionCount, difficulty, categoryId) => 
+const API_URL = (questionCount, difficulty, categoryId) =>
     `https://opentdb.com/api.php?amount=${questionCount}&difficulty=${difficulty}&type=multiple&category=${categoryId}`;
 const CATEGORIES_API = "https://opentdb.com/api_category.php";
 
@@ -13,7 +12,9 @@ const Game = () => {
     const [score, setScore] = useState(0);
     const [currentQuiz, setCurrentQuiz] = useState(0);
     const [finished, setFinished] = useState(false);
+
     const [loaded, setLoaded] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
 
     const [difficulty, setDifficulty] = useState("easy");
     const [categories, setCategories] = useState([]);
@@ -22,25 +23,46 @@ const Game = () => {
 
     useEffect(() => {
         const fetchCategories = async () => {
-            try{
-                const result = await fetch(CATEGORIES_API)
-                const data = await result.json()
-                setCategories(data.trivia_categories)
-            } catch (err){
+            try {
+                const result = await fetch(CATEGORIES_API);
+                const data = await result.json();
+                // Check if the response indicates a rate limit exceeded error
+                if (result.status === 429) {
+                    // Implement rate limit handling
+                    const retryAfter = result.headers.get("Retry-After") || 5; // Default to 5 seconds if Retry-After header is not present
+                    console.log(
+                        `Rate limit exceeded. Retrying after ${retryAfter} seconds.`
+                    );
+
+                    // Wait for the specified duration before retrying
+                    await new Promise(resolve =>
+                        setTimeout(resolve, retryAfter * 1000)
+                    );
+
+                    // Retry the API request
+                    return fetchQuiz();
+                }
+
+            } catch (err) {
                 console.error(err);
             }
-        }
+        };
         fetchCategories();
-    }, []) 
+    }, []);
 
+    const debounce = (func, delay) => {
+        let timeoutId;
+      
+        return (...args) => {
+          clearTimeout(timeoutId);
+          timeoutId = setTimeout(() => {
+            func(...args);
+          }, delay);
+        };
+      };
     useEffect(() => {
-        fetchQuiz();
-    }, [finished]);
-
-    useEffect(() => {
-        fetchQuiz();
-        setCurrentQuiz(0);
-    }, [difficulty, categoryId, questionCount])
+        debounce(fetchQuiz, 1000)
+    }, [difficulty, categoryId, questionCount, finished]);
 
     useEffect(() => {
         const newOptions = [
@@ -53,7 +75,6 @@ const Game = () => {
 
     console.log(quiz);
     console.log(options);
-    console.log(currentQuiz);
 
     const nextQuiz = index => {
         if (options[index] === quiz[currentQuiz]?.correct_answer) {
@@ -69,9 +90,12 @@ const Game = () => {
     const fetchQuiz = async () => {
         setLoaded(false);
         try {
-            const result = await fetch(API_URL(questionCount, difficulty, categoryId));
+            const result = await fetch(
+                API_URL(questionCount, difficulty, categoryId)
+            );
             const data = await result.json();
             setQuiz(data.results || []);
+            setCurrentQuiz(0);
         } catch (err) {
             console.error(err);
         } finally {
@@ -97,25 +121,16 @@ const Game = () => {
                 questionCount={questionCount}
                 setQuestionCount={setQuestionCount}
             />
-            <div className=" max-w-xl w-full rounded border-2 overflow-hidden">
-                <header className="bg-nightblue-900/70 p-3 text-center text-2xl">
-                    General Knowledge
-                </header>
-                {finished ? (
-                    <div className="flex flex-col items-center justify-center gap-3 py-8">
-                        <h1 className="text-3xl">Your score is {score}</h1>
-                        <Button onClick={restartQuiz}>Restart</Button>
-                    </div>
-                ) : (
-                    <QuizUI
-                        loaded={loaded}
-                        currentQuiz={currentQuiz}
-                        quiz={quiz}
-                        options={options}
-                        nextQuiz={nextQuiz}
-                    />
-                )}
-            </div>
+            <QuizUI
+                score={score}
+                restartQuiz={restartQuiz}
+                finished={finished}
+                loaded={loaded}
+                currentQuiz={currentQuiz}
+                quiz={quiz}
+                options={options}
+                nextQuiz={nextQuiz}
+            />
         </div>
     );
 };
