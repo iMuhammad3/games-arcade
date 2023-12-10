@@ -35,19 +35,7 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-    return (
-        <>
-            <RouterProvider router={router} />
-            <Helmet>
-                <link
-                    rel="preload"
-                    href="/assets/fonts/Poppins-Medium.ttf"
-                    as="font"
-                    crossorigin="anonymous"
-                />
-            </Helmet>
-        </>
-    );
+    return <RouterProvider router={router} />;
 };
 
 export default App;
