@@ -1,2 +1,2 @@
 # games-arcade
-Just Games
+Learning React and Firebase by building games.
