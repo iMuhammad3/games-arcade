@@ -14,7 +14,6 @@ const Game = () => {
     const [finished, setFinished] = useState(false);
 
     const [loaded, setLoaded] = useState(false);
-    const [errorMessage, setErrorMessage] = useState("");
 
     const [difficulty, setDifficulty] = useState("easy");
     const [categories, setCategories] = useState([]);
