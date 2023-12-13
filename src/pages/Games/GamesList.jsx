@@ -2,17 +2,18 @@ import React, { useState } from "react";
 import Header from "../../components/Header/Header";
 import { SearchInput } from "./SearchInput";
 import { Categories } from "./Categories";
-import GAMES from "../../games/ALL-GAMES";
 import { GameElement } from "./GameElement/GameElement";
+import { useGames } from "../../games/useGames";
 
 const GamePage = () => {
     const [userInput, setUserInput] = useState("");
+    const games = useGames()
 
     const formattedName = (name) => {
         return name.split("-").join(" ").toUpperCase();
     };
 
-    const filteredGames = GAMES.filter(game =>
+    const filteredGames = games.filter(game =>
         formattedName(game.name).includes(userInput.toUpperCase())
     );
 

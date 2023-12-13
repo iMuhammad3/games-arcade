@@ -2,13 +2,16 @@ import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import GamesList from "./pages/Games/GamesList";
-import GAMES from "./games/ALL-GAMES";
 import Error from "./pages/Error";
 import "./index.css";
 import Game from "./pages/Game/Game";
-import { Helmet } from "react-helmet";
+import { useGames } from "./games/useGames";
 
-const children = GAMES.map(game => {
+
+
+const App = () => {
+    const games = useGames()
+const children = games.map(game => {
     return {
         path: `/game/${game.name}`,
         element: game.element,
@@ -33,8 +36,6 @@ const router = createBrowserRouter([
         children: children,
     },
 ]);
-
-const App = () => {
     return <RouterProvider router={router} />;
 };
 
