@@ -12,9 +12,9 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../config/firebase.config";
 
 const elements = {
+    "quiz": <Quiz />,
     "typing-game": <TypingGame />,
     "memory-game": <Memory />,
-    "quiz": <Quiz />,
     "rock-paper-scissors": <RPS />,
     "whac-a-messi": <WhacGame />,
     "tic-tac-toe": <TicTacToe />,
@@ -22,20 +22,28 @@ const elements = {
 
 export const useGames = () => {
     const [games, setGames] = useState([]);
+    const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
         const fetchGames = async () => {
-            const querySnapshot = await getDocs(collection(db, "games"));
-            const data = querySnapshot.docs.map(doc => {
-                return {
-                    ...doc.data(),
-                    element: elements[doc.data().name],
-                };
-            });
-            setGames(data);
+            setIsLoaded(false);
+            try {
+                const querySnapshot = await getDocs(collection(db, "games"));
+                const data = querySnapshot.docs.map(doc => {
+                    return {
+                        ...doc.data(),
+                        element: elements[doc.data().name],
+                    };
+                });
+                setGames(data);
+            } catch (err) {
+                console.error(err);
+            } finally {
+                setIsLoaded(true);
+            }
         };
         fetchGames();
     }, []);
 
-    return games;
+    return [games, isLoaded];
 };

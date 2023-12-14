@@ -7,35 +7,33 @@ import "./index.css";
 import Game from "./pages/Game/Game";
 import { useGames } from "./games/useGames";
 
-
-
 const App = () => {
-    const games = useGames()
-const children = games.map(game => {
-    return {
-        path: `/game/${game.name}`,
-        element: game.element,
-    };
-});
+    const [games] = useGames();
 
-const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <Home />,
-        errorElement: <Error />,
-    },
-    {
-        // list of games
-        path: "/games",
-        element: <GamesList />,
-    },
-    {
-        // individual game
-        path: "/game",
-        element: <Game />,
-        children: children,
-    },
-]);
+    const router = createBrowserRouter([
+        {
+            path: "/",
+            element: <Home />,
+            errorElement: <Error />,
+        },
+        {
+            // list of games
+            path: "/games",
+            element: <GamesList />,
+        },
+        {
+            // individual game
+            path: "/game",
+            element: <Game />,
+            children: games.map(game => {
+                return {
+                    path: `/game/${game.name}`,
+                    element: game.element,
+                };
+            }),
+        },
+    ]);
+    
     return <RouterProvider router={router} />;
 };
 
