@@ -15,23 +15,23 @@
     height: 45px;
     border-radius: 50%;
     border: 7px solid transparent;
-    border-right-color: rgb(44, 125, 176);
-    border-left-color: rgb(216, 52, 101);
+    border-right-color: rgb(52, 151, 213);
+    border-left-color: rgb(226, 52, 104);
     animation: spin 1000ms linear infinite forwards;
 }
 
 @keyframes spin {
     0% {
-        border-right-color: rgb(42, 108, 149);
+        border-right-color: rgb(56, 144, 199);
         border-left-color: rgb(237, 53, 191);
     }
     50%{
-        border-right-color: rgb(148, 26, 170);
-        border-left-color: rgb(32, 41, 133);
+        border-right-color: rgb(202, 35, 232);
+        border-left-color: rgb(51, 64, 205);
     }
     100% {
         transform: rotate(360deg);
-        border-right-color: rgb(42, 108, 149);
+        border-right-color: rgb(56, 147, 204);
         border-left-color: rgb(237, 53, 191);
     }
 }
