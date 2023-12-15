@@ -36,7 +36,7 @@ export const Main = ({ games }) => {
                         );
                     })
                 ) : (
-                    <p>{`No results for ${userInput}...`}</p>
+                    <p>{`No results for ${userInput.slice(0, 20)}...`}</p>
                 )}
             </ul>
         </main>
