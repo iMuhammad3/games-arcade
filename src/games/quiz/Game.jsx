@@ -20,9 +20,6 @@ const Game = () => {
     const [categoryId, setCategoryId] = useState(9);
     const [questionCount, setQuestionCount] = useState(10);
     const categories = useCategories(CATEGORIES_API)
-
-    console.log("quiz", quiz[currentQuiz]);
-    console.log("options", options);
     
     useEffect(() => {
         fetchQuiz()
