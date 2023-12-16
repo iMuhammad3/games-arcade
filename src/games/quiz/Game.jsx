@@ -56,7 +56,6 @@ const Game = () => {
                 API_URL(questionCount, difficulty, categoryId)
             ); 
             const data = await result.json();
-            console.log(data);
             // Too many requests have occurred
             if(data.response_code === 5){
                 clearTimeout(timeoutId)

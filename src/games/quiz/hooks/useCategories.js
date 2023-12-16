@@ -7,7 +7,6 @@ export const useCategories = (api) => {
         try {
             const result = await fetch(api);
             const data = await result.json();
-            console.log(data);
             
             setCategories(data.trivia_categories)
     
