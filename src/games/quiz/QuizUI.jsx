@@ -55,7 +55,7 @@ export const QuizUI = ({
     // else if loaded is true then display quiz
     // else display a loader until loaded is true
     return (
-        <div className=" max-w-xl w-full rounded border-2 overflow-hidden">
+        <div className=" max-w-xl w-full rounded border-2 overflow-hidden select-none">
             <header className="bg-nightblue-900/70 p-3 text-center text-2xl">
                 Quiz
             </header>
