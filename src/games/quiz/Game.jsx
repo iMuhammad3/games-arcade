@@ -65,7 +65,6 @@ const Game = () => {
                 }, 5500)
                 return
             }
-            console.log(data);
             setQuiz(data.results || []);
             setCurrentQuiz(0);
         } catch (err) {
