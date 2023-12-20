@@ -5,14 +5,19 @@ import { GameElement } from "../GameElement/GameElement";
 
 export const Main = ({ games }) => {
     const [userInput, setUserInput] = useState("");
+    const [category, setCategory] = useState("")
+    const categories = [...new Set(games.map(game => game?.categories).flat(Infinity))]
 
     const formattedName = name => {
         return name.split("-").join(" ").toUpperCase();
     };
 
-    const filteredGames = games.filter(game =>
-        formattedName(game.name).includes(userInput.toUpperCase())
-    );
+    const filteredGames = games.filter(game => {
+        if(category){
+            return formattedName(game.name).includes(userInput.toUpperCase()) && game.categories.includes(category)
+        }
+        return formattedName(game.name).includes(userInput.toUpperCase())
+    });
 
     return (
         <main className="flex flex-col gap-2">
@@ -22,7 +27,11 @@ export const Main = ({ games }) => {
                     userInput={userInput}
                     setUserInput={setUserInput}
                 />
-                <Categories />
+                <Categories
+                    categories={categories}
+                    category={category}
+                    setCategory={setCategory}
+                />
             </div>
             <ul className="my-8 font-serif flex flex-wrap justify-center gap-8 px-4 md:px-16">
                 {filteredGames.length > 0 ? (
