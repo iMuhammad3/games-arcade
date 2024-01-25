@@ -21,6 +21,7 @@
     "react-helmet": "^6.1.0",
     "react-loader-spinner": "^5.4.5",
     "react-router-dom": "^6.18.0",
+    "universal-cookie": "^6.1.1",
     "use-immer": "^0.7.0"
   },
   "devDependencies": {

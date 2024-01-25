@@ -6,6 +6,7 @@ import Error from "./pages/Error";
 import "./index.css";
 import Game from "./pages/Game/Game";
 import { useGames } from "./games/useGames";
+import { Login } from "./pages/Auth/Login";
 
 const App = () => {
     const [games] = useGames();
@@ -20,6 +21,10 @@ const App = () => {
             // list of games
             path: "/games",
             element: <GamesList />,
+        },
+        {
+            path: "/login",
+            element: <Login />,
         },
         {
             // individual game
